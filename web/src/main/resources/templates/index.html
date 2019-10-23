@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script src="/web/js/jquery-3.4.0.min.js"></script>
+</head>
+<body>
+    <script>
+        $.ajax({
+            url:"http://localhost/user/user/1",
+            type:"get",
+            dataType:"json",
+            success:function(data){
+                alert(data.object.name);
+            }
+        });
+    </script>
+</body>
+</html>
