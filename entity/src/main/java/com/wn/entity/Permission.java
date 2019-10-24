@@ -57,16 +57,13 @@ public class Permission implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", pid=").append(pid);
-        sb.append(", name=").append(name);
-        sb.append(", resource=").append(resource);
-        sb.append(", parentId=").append(parentId);
-        sb.append(", level=").append(level);
-        sb.append("]");
-        return sb.toString();
+        return "Permission{" +
+                "pid=" + pid +
+                ", name='" + name + '\'' +
+                ", resource='" + resource + '\'' +
+                ", parentId=" + parentId +
+                ", level=" + level +
+                '}';
     }
+
 }
