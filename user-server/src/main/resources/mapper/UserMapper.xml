@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wn.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.wn.entity.User">
+    <!--@mbg.generated-->
+    <id column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="token" jdbcType="VARCHAR" property="token" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    `uid`, `name`, token
+  </sql>
+
+  <select id="selectByToken" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from user where token = #{token,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where `uid` = #{uid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from user
+    where `uid` = #{uid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="uid" keyProperty="uid" parameterType="com.wn.entity.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into user (`name`, token)
+    values (#{name,jdbcType=VARCHAR}, #{token,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="uid" keyProperty="uid" parameterType="com.wn.entity.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="token != null">
+        token,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="token != null">
+        #{token,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wn.entity.User">
+    <!--@mbg.generated-->
+    update user
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="token != null">
+        token = #{token,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where `uid` = #{uid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wn.entity.User">
+    <!--@mbg.generated-->
+    update user
+    set `name` = #{name,jdbcType=VARCHAR},
+      token = #{token,jdbcType=VARCHAR}
+    where `uid` = #{uid,jdbcType=INTEGER}
+  </update>
+</mapper>
