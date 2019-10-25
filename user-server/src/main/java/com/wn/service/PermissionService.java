@@ -1,8 +1,10 @@
-package com.wn.mapper;
+package com.wn.service;
 
 import com.wn.entity.com.wn.entity.Permission;
 
-public interface PermissionMapper {
+public interface PermissionService{
+
+
     int deleteByPrimaryKey(Integer pid);
 
     int insert(Permission record);
@@ -14,4 +16,5 @@ public interface PermissionMapper {
     int updateByPrimaryKeySelective(Permission record);
 
     int updateByPrimaryKey(Permission record);
+
 }

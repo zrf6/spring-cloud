@@ -3,13 +3,10 @@ package com.wn.filter;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
-import com.wn.entity.User;
-import org.springframework.data.redis.core.RedisTemplate;
+import com.wn.entity.com.wn.entity.User;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Random;
 import java.util.UUID;
 
 public class LoginFilter extends ZuulFilter {

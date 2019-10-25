@@ -1,8 +1,10 @@
-package com.wn.mapper;
+package com.wn.service;
 
 import com.wn.entity.com.wn.entity.User;
 
-public interface UserMapper {
+public interface UserService{
+
+
     int deleteByPrimaryKey(Integer uid);
 
     int insert(User record);

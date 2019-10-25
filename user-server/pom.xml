@@ -70,6 +70,12 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
+        <!--添加Ribbon提供服务间的通讯-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+        </dependency>
+
 
     </dependencies>
 
