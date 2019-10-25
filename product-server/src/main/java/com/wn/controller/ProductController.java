@@ -29,7 +29,7 @@ public class ProductController {
     RestTemplate restTemplate;
 
     @GetMapping("/{id}")
-    public String selectByPrimaryKey(@PathVariable Integer id, HttpSession httpSession, HttpServletRequest req) {
+    public String selectByPrimaryKey(@PathVariable Integer id, HttpSession httpSession, HttpServletRequest req) throws Exception {
         Cookie[] httpCookies = req.getCookies();
         //创建Http头信息对象
         HttpHeaders headers = new HttpHeaders();
@@ -60,7 +60,8 @@ public class ProductController {
         HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(null, headers);
         //发送请求
         ResponseEntity<String> response = restTemplate.postForEntity("http://user-service/login", request, String.class);
-        return response.getBody();
+        String json = new String(response.getBody().getBytes("ISO8859-1"),"utf-8");
+        return json;
     }
 
 }

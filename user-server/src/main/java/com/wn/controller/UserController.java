@@ -40,7 +40,7 @@ public class UserController {
                 }
             }
         }
-        System.out.println("user模块中的session为" + sessionId);
+        System.out.println("user模块中的session为" + session.getId());
         System.out.println(session.getAttribute("用户"));
         return new Result("success", "1", null, permissionService.selectByPrimaryKey(1));
     }

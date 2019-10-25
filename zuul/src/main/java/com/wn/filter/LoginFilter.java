@@ -7,6 +7,7 @@ import com.wn.entity.com.wn.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Base64;
 import java.util.UUID;
 
 public class LoginFilter extends ZuulFilter {
@@ -30,12 +31,13 @@ public class LoginFilter extends ZuulFilter {
 
         //获取容器
         RequestContext ctx = RequestContext.getCurrentContext();
-
         HttpServletRequest req = ctx.getRequest();
         HttpSession session = req.getSession();
         session.setAttribute("用户", new User(1,"张三", UUID.randomUUID().toString()));
         System.out.println(session.getAttribute("用户"));
         System.out.println("网关中的session为" + session.getId());
+        //将Cookie加密后添加到头信息，第一次请求Session也能共享
+        ctx.addZuulRequestHeader("Cookie","SESSION="+ Base64.getEncoder().encodeToString(session.getId().getBytes()));
 //        Cookie[] cookies = req.getCookies();
 //        //未登录过，进行登录
 //        if(cookies == null || cookies.length == 0){
