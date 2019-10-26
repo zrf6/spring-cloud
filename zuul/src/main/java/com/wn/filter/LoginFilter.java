@@ -11,6 +11,10 @@ import java.util.Base64;
 import java.util.UUID;
 
 public class LoginFilter extends ZuulFilter {
+
+    /**
+     *  定义过滤器的类型，pre为前置过滤器
+     */
     @Override
     public String filterType() {
         return "pre";

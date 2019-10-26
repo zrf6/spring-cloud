@@ -1,6 +1,8 @@
 package com.wn.entity.com.wn.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class User implements Serializable {
     private Integer uid;
